@@ -6,7 +6,7 @@ import org.litepal.crud.DataSupport;
  * Created by llm on 2017/9/20 0020.
  */
 
-public class Provice extends DataSupport{
+public class Province extends DataSupport{
     private int id;
     private String proviceName;
     private int proviceCode;
