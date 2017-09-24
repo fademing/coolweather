@@ -1,5 +1,6 @@
 package com.ming.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.ming.coolweather.gson.Forecast;
 import com.ming.coolweather.gson.Weather;
+import com.ming.coolweather.service.AutoUpdateService;
 import com.ming.coolweather.util.HttpUtil;
 import com.ming.coolweather.util.Utility;
 
@@ -251,5 +253,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 }
