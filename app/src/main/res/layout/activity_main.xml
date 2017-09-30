@@ -1,16 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ming.coolweather.MainActivity">
 
-    <fragment
-        android:id="@+id/choose_area_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.ming.coolweather.choseAreaFragment"
-        />
 
-</FrameLayout>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/draw_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <com.ming.coolweather.util.MainViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/nav_btn"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentLeft="true"
+                android:background="@android:color/holo_red_light"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_weather"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableTop="@drawable/ic_weather"
+                    android:gravity="center"
+                    android:text="天气" />
+
+                <RadioButton
+                    android:id="@+id/rb_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableTop="@drawable/ic_view"
+                    android:gravity="center"
+                    android:text="实景" />
+
+                <RadioButton
+                    android:id="@+id/rb_setting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableTop="@drawable/ic_setting"
+                    android:gravity="center"
+                    android:text="我" />
+
+            </RadioGroup>
+        </RelativeLayout>
+
+        <fragment
+            android:id="@+id/choose_area_fragment"
+            android:name="com.ming.coolweather.AddAreaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_gravity="start" />
+
+    </android.support.v4.widget.DrawerLayout>
+</RelativeLayout>
